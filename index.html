@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivit - Tu camino hacia una vida saludable</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fuente similar a SF Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=San+Francisco:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="assets/vivit_logo.png" alt="Vivit Logo" class="logo">
+        <nav>
+            <button onclick="showSection('home')">Inicio</button>
+            <button onclick="showSection('workouts')">Rutinas</button>
+            <button onclick="showSection('nutrition')">Nutrición</button>
+            <button onclick="showSection('tracking')">Seguimiento</button>
+            <button onclick="showSection('mental')">Bienestar</button>
+            <button onclick="showSection('marketplace')">Marketplace</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Inicio -->
+        <section id="home" class="active">
+            <h2>Bienvenido a Vivit</h2>
+            <p>Tu espacio para mejorar tu salud física y mental con rutinas, nutrición y más.</p>
+        </section>
+
+        <!-- Rutinas de entrenamiento -->
+        <section id="workouts">
+            <h2>Rutinas de Entrenamiento</h2>
+            <div class="routine-selector">
+                <button onclick="selectRoutine('pecho')">Pecho</button>
+                <button onclick="selectRoutine('espalda')">Espalda</button>
+                <button onclick="selectRoutine('hombros')">Hombros</button>
+                <button onclick="selectRoutine('biceps')">Biceps</button>
+                <button onclick="selectRoutine('triceps')">Triceps</button>
+                <button onclick="selectRoutine('piernas')">Piernas</button>
+            </div>
+            <div id="routine-details"></div>
+            <button id="complete-routine" style="display:none;" onclick="completeRoutine()">Completar Rutina</button>
+        </section>
+
+        <!-- Salud y Nutrición -->
+        <section id="nutrition">
+            <h2>Salud y Nutrición</h2>
+            <h3>Calculadora de IMC</h3>
+            <form id="bmi-form">
+                <label>Peso (kg): <input type="number" id="weight" min="0" step="0.1" required></label>
+                <label>Altura (m): <input type="number" id="height" min="0" step="0.01" required></label>
+                <button type="submit">Calcular</button>
+            </form>
+            <div id="bmi-result"></div>
+            <div id="diet-plan"></div>
+        </section>
+
+        <!-- Seguimiento de salud -->
+        <section id="tracking">
+            <h2>Seguimiento de Salud</h2>
+            <form id="tracking-form">
+                <label>Pasos: <input type="number" id="steps" min="0"></label>
+                <label>Agua (L): <input type="number" id="water" step="0.1" min="0"></label>
+                <label>Comida (cal): <input type="number" id="calories" min="0"></label>
+                <label>Sueño (h): <input type="number" id="sleep" min="0" step="0.1"></label>
+                <label>Ánimo (1-10): <input type="number" id="mood" min="1" max="10"></label>
+                <button type="submit">Registrar</button>
+            </form>
+            <div id="tracking-summary"></div>
+        </section>
+
+        <!-- Zona de bienestar mental -->
+        <section id="mental">
+            <h2>Zona de Bienestar Mental</h2>
+            <h3>Meditación</h3>
+            <p>Respira profundo 5 veces: Inhala por 4 seg, exhala por 6 seg.</p>
+            <h3>Test de Estrés</h3>
+            <form id="stress-test">
+                <label>¿Te sientes abrumado? (1-5): <input type="number" id="stress1" min="1" max="5" required></label>
+                <label>¿Duermes bien? (1-5, 5 es mejor): <input type="number" id="stress2" min="1" max="5" required></label>
+                <button type="submit">Evaluar</button>
+            </form>
+            <div id="stress-result"></div>
+        </section>
+
+        <!-- Marketplace saludable -->
+        <section id="marketplace">
+            <h2>Marketplace Saludable</h2>
+            <p>Puntos: <span id="points">0</span></p>
+            <div class="product">
+                <img src="assets/products/creatina_muscletech.jpeg" alt="Creatina MuscleTech">
+                <h3>Creatina MuscleTech</h3>
+                <p>Precio: 30 puntos o $30</p>
+                <button onclick="buyWithPoints(30, 'Creatina MuscleTech')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Creatina MuscleTech', 30)">Comprar con dinero</button>
+            </div>
+            <div class="product">
+                <img src="assets/products/creatina_monohidratada.jpeg" alt="Creatina Monohidratada">
+                <h3>Creatina Monohidratada</h3>
+                <p>Precio: 25 puntos o $25</p>
+                <button onclick="buyWithPoints(25, 'Creatina Monohidratada')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Creatina Monohidratada', 25)">Comprar con dinero</button>
+            </div>
+            <div class="product">
+                <img src="assets/products/proteina_whey_gold_standard.jpeg" alt="Proteina Whey Gold Standard">
+                <h3>Proteina Whey Gold Standard</h3>
+                <p>Precio: 50 puntos o $50</p>
+                <button onclick="buyWithPoints(50, 'Proteina Whey Gold Standard')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Proteina Whey Gold Standard', 50)">Comprar con dinero</button>
+            </div>
+            <div class="product">
+                <img src="assets/products/ion_performance_preworkout.jpeg" alt="Ion Performance Pre-Workout">
+                <h3>Ion Performance Pre-Workout</h3>
+                <p>Precio: 35 puntos o $35</p>
+                <button onclick="buyWithPoints(35, 'Ion Performance Pre-Workout')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Ion Performance Pre-Workout', 35)">Comprar con dinero</button>
+            </div>
+            <div class="product">
+                <img src="assets/products/proteina_whey_mutant.jpeg" alt="Proteina Whey Mutant">
+                <h3>Proteina Whey Mutant</h3>
+                <p>Precio: 50 puntos o $50</p>
+                <button onclick="buyWithPoints(35, 'Proteina Whey Mutant')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Proteina Whey Mutant', 35)">Comprar con dinero</button>
+            </div>
+            <div class="product">
+                <img src="assets/products/proteina_aislada.jpeg" alt="Proteina Aislada">
+                <h3>Proteina Aislada</h3>
+                <p>Precio: 45 puntos o $45</p>
+                <button onclick="buyWithPoints(35, 'Proteina Aislada')">Comprar con puntos</button>
+                <button onclick="buyWithMoney('Proteina Aislada', 35)">Comprar con dinero</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
