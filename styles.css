@@ -1,60 +1,68 @@
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilo general */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    line-height: 1.6;
+    font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    background-color: #ffffff;
+    color: #1d1d1f;
+    line-height: 1.5;
 }
 
+/* Encabezado */
 header {
-    background: linear-gradient(135deg, #2b2b2b, #1a1a1a);
-    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(29, 29, 31, 0.8); /* Gris oscuro translúcido */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque como Apple */
+    padding: 10px 0;
     text-align: center;
+    z-index: 1000;
 }
 
 .logo {
-    width: 150px; /* Ajusta según el tamaño de tu logo */
+    width: 100px; /* Tamaño pequeño como el logo de Apple */
     height: auto;
-    margin-bottom: 10px;
+    vertical-align: middle;
 }
 
-h1 {
-    font-size: 2rem;
-    color: #00d4ff;
-    font-weight: 700;
+/* Navegación */
+nav {
+    display: inline-block;
 }
 
 nav button {
-    background: linear-gradient(135deg, #00d4ff, #007bff);
+    background: none;
     border: none;
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 25px;
     color: #ffffff;
+    font-size: 17px;
+    font-weight: 400;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 nav button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5);
+    color: #86868b; /* Gris claro al pasar el ratón */
 }
 
+/* Contenido principal */
 main {
-    max-width: 900px;
-    margin: 40px auto;
+    max-width: 980px;
+    margin: 80px auto 0; /* Espacio para el encabezado fijo */
     padding: 0 20px;
 }
 
+/* Secciones */
 section {
     display: none;
-    background: #252525;
-    padding: 25px;
-    border-radius: 15px;
+    padding: 40px 0;
+    text-align: center;
 }
 
 section.active {
@@ -62,98 +70,100 @@ section.active {
 }
 
 h2 {
-    font-size: 1.5rem;
-    color: #00d4ff;
+    font-size: 48px;
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
 h3 {
-    font-size: 1.2rem;
-    color: #87ceeb;
-    margin: 15px 0 10px;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 20px 0 10px;
 }
 
+p {
+    font-size: 19px;
+    color: #1d1d1f;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+/* Rutinas */
+.routine-selector {
+    margin: 20px 0;
+}
+
+.routine-selector button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    color: #1d1d1f;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.routine-selector button:hover {
+    color: #86868b;
+}
+
+.exercise {
+    margin: 20px 0;
+}
+
+.exercise img {
+    width: 300px; /* Tamaño más grande para destacar */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Formularios */
 form {
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
 }
 
 label {
     display: flex;
     flex-direction: column;
-    color: #ccc;
+    font-size: 17px;
+    color: #1d1d1f;
 }
 
 input[type="number"] {
     padding: 10px;
-    border: 1px solid #00d4ff;
-    border-radius: 8px;
-    background-color: #333;
-    color: #fff;
+    border: 1px solid #d2d2d7;
+    border-radius: 5px;
+    font-size: 17px;
+    width: 200px;
+    margin-top: 5px;
 }
 
-button[type="submit"], .routine-selector button, .product button {
-    background: linear-gradient(135deg, #00d4ff, #007bff);
+button[type="submit"], #complete-routine {
+    background: none;
     border: none;
     padding: 10px 20px;
-    border-radius: 10px;
-    color: #fff;
+    color: #1d1d1f;
+    font-size: 17px;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-button:hover {
-    transform: translateY(-2px);
+button[type="submit"]:hover, #complete-routine:hover {
+    color: #86868b;
 }
 
-#bmi-result, #diet-guide, #tracking-summary, #stress-result {
-    margin-top: 20px;
-    color: #ccc;
-}
-
-.routine-selector button {
-    margin: 5px;
-}
-
-#timer {
-    font-size: 2rem;
-    color: #00d4ff;
-    margin: 20px 0;
-}
-
-.product {
-    margin: 20px 0;
-    padding: 15px;
-    background: #333;
-    border-radius: 10px;
-}
-
-.routine-selector button {
-    margin: 5px;
-    padding: 10px;
-}
-
-.exercise img {
-    width: 200px; /* Ajusta el tamaño de los GIFs */
-    height: auto;
-    margin: 10px 0;
-}
-
-.product {
-    display: inline-block;
-    width: 200px;
-    margin: 10px;
-    text-align: center;
-}
-
-.product img {
-    width: 150px; /* Ajusta el tamaño de las imágenes PNG */
-    height: auto;
-}
-
-#bmi-result, #diet-plan {
+/* Resultados y planes */
+#bmi-result, #diet-plan, #tracking-summary, #stress-result {
     margin-top: 20px;
     text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #diet-plan ul {
@@ -164,16 +174,40 @@ button:hover {
 #diet-plan li {
     margin: 10px 0;
     padding: 10px;
-    background-color: #0e5dac;
+    background-color: #f5f5f7;
     border-radius: 5px;
-}
-
-#stress-result {
-    margin-top: 20px;
-    text-align: left;
 }
 
 #stress-result ul {
     list-style-type: disc;
     padding-left: 20px;
+}
+
+/* Marketplace */
+.product {
+    display: inline-block;
+    width: 220px;
+    margin: 20px;
+    text-align: center;
+}
+
+.product img {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product button {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    color: #1d1d1f;
+    font-size: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.product button:hover {
+    color: #86868b;
 }
