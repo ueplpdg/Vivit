@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivit - Tu camino hacia una vida saludable</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Fuente similar a SF Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=San+Francisco:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="assets/vivit_logo_2.png" alt="Vivit Logo" class="logo">
+        <img src="assets/vivit_logo.png" alt="Vivit Logo" class="logo">
         <nav>
             <button onclick="showSection('home')">Inicio</button>
             <button onclick="showSection('workouts')">Rutinas</button>
@@ -40,6 +42,7 @@
             <div id="routine-details"></div>
             <button id="complete-routine" style="display:none;" onclick="completeRoutine()">Completar Rutina</button>
         </section>
+
         <!-- Salud y Nutrición -->
         <section id="nutrition">
             <h2>Salud y Nutrición</h2>
@@ -52,6 +55,7 @@
             <div id="bmi-result"></div>
             <div id="diet-plan"></div>
         </section>
+
         <!-- Seguimiento de salud -->
         <section id="tracking">
             <h2>Seguimiento de Salud</h2>
